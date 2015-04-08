@@ -8,10 +8,10 @@ use DBI;
 use constant PI => 4 * atan2(1, 1);
 
 # MySQL CONFIG VARIABLES
-       $dsn = 'DBI:mysql:mc118:devops.energeosol.com';
-      $user = 'root';
-        $pw = 'etracadmin42';
- $tablename = 'adcp';
+       $dsn = 'DBI:mysql:yourdb:yourhost';
+      $user = 'user';
+        $pw = 'password';
+ $tablename = 'yourtable';
 
 # PERL MYSQL CONNECT
 $mysql = DBI->connect($dsn, $user, $pw);
