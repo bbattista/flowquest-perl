@@ -5,12 +5,12 @@
 
 package flowquest;
 use DBI;
-use constant PI    => 4 * atan2(1, 1);
+use constant PI => 4 * atan2(1, 1);
 
 # MySQL CONFIG VARIABLES
-       $dsn = 'DBI:mysql:yourhostname';
-      $user = '####';
-        $pw = '####';
+       $dsn = 'DBI:mysql:mc118:devops.energeosol.com';
+      $user = 'root';
+        $pw = 'etracadmin42';
  $tablename = 'adcp';
 
 # PERL MYSQL CONNECT
@@ -247,6 +247,11 @@ sub e1 {
 
 sub e2 {
   my ($obj,$string) = @_;
+  $obj->{ch0_vrad} = [];
+  $obj->{ch1_vrad} = [];
+  $obj->{ch2_vrad} = [];
+  $obj->{ch3_vrad} = [];
+
   $obj->find('E2');
   next unless $obj->{status}==1;
 
@@ -274,6 +279,10 @@ sub e2 {
 
 sub e3 {
   my ($obj,$string) = @_;
+  $obj->{VIx} = [];
+  $obj->{VIy} = [];
+  $obj->{VIz} = [];
+
   $obj->find('E3');
   next unless $obj->{status}==1;
 
@@ -298,6 +307,10 @@ sub e3 {
 
 sub e4 {
   my ($obj,$string) = @_;
+  $obj->{VEx} = [];
+  $obj->{VEy} = [];
+  $obj->{VEz} = [];
+
   $obj->find('E4');
   next unless $obj->{status}==1;
 
@@ -322,6 +335,8 @@ sub e4 {
 
 sub e5 {
   my ($obj,$string) = @_;
+  $obj->{ping_percent} = [];
+
   $obj->find('E5');
   next unless $obj->{status}==1;
 
@@ -341,6 +356,11 @@ sub e5 {
 
 sub e6 {
   my ($obj,$string) = @_;
+  $obj->{ch0_strength} = [];
+  $obj->{ch1_strength} = [];
+  $obj->{ch2_strength} = [];
+  $obj->{ch3_strength} = [];
+
   $obj->find('E6');
   next unless $obj->{status}==1;
 
@@ -367,6 +387,11 @@ sub e6 {
 
 sub e7 {
   my ($obj,$string) = @_;
+  $obj->{ch0_snr} = [];
+  $obj->{ch1_snr} = [];
+  $obj->{ch2_snr} = [];
+  $obj->{ch3_snr} = [];
+
   $obj->find('E7');
   next unless $obj->{status}==1;
 
